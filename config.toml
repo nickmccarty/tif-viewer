@@ -1,0 +1,16 @@
+[tool.uvicorn]
+host = "127.0.0.1"
+port = 8000
+reload = true
+log_level = "info"
+
+[tool.fastapi]
+title = "GeoTIFF Viewer"
+description = "A web-based GeoTIFF viewer using Leaflet"
+version = "1.0.0"
+
+[app.settings]
+upload_dir = "uploads"
+max_file_size = 100  # MB
+allowed_extensions = [".tif", ".tiff"]
+default_tile_size = 256
