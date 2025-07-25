@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTIFF Viewer</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>GeoTIFF Viewer</h1>
+            <div class="upload-section">
+                <input type="file" id="fileInput" accept=".tif,.tiff" />
+                <button id="uploadBtn">Upload GeoTIFF</button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div id="sidebar">
+                <div class="panel">
+                    <h3>File Information</h3>
+                    <div id="fileInfo">
+                        <p>No file loaded</p>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h3>Layer Controls</h3>
+                    <div id="layerControls">
+                        <label for="opacitySlider">Opacity:</label>
+                        <input type="range" id="opacitySlider" min="0" max="1" step="0.1" value="1">
+                        <span id="opacityValue">100%</span>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h3>Map Controls</h3>
+                    <div id="mapControls">
+                        <button id="fitBoundsBtn" disabled>Fit to Layer</button>
+                        <button id="resetViewBtn">Reset View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="mapContainer">
+                <div id="map"></div>
+                <div id="loadingIndicator" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Processing GeoTIFF...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="statusBar">
+            <span id="coordinates">Lat: 0.000, Lng: 0.000</span>
+            <span id="zoom">Zoom: 2</span>
+        </div>
+    </div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="/static/app.js"></script>
+</body>
+</html>
